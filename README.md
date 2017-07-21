@@ -8,7 +8,9 @@ play with word2vec, this project used py3
 
 unicode 有奇怪的问题 载入模型时使用 ignore
 
-trans wiki:
+## 自己训练一遍，先准备好数据
+
+1. trans wiki:
 
 ```
 cd data
@@ -52,7 +54,7 @@ Using Theano backend.
 
 ```
 
-简繁转换:
+2. 简繁转换:
 
 ```
 sudo apt-get install opencc
@@ -62,13 +64,55 @@ cd data
 opencc -i wiki_org.zh.text -o wiki.zh.text.simple -c zht2zhs.ini
 ```
 
-
-word cut:
+3. word cut:
 
 ```
 cd data
 
 python3 word_cut.py wiki.zh.text.simple
+
+output:
+input wiki.zh.text.simple out jieba_cut_wiki.zh.text.simple
+Building prefix dict from /usr/local/lib/python3.5/dist-packages/jieba/dict.txt ...
+Loading model from cache /tmp/jieba.cache
+Loading model cost 2.40177583694458 seconds.
+Prefix dict has been built succesfully.
+2017-07-21T15:05:58.301916+08:00 20000
+2017-07-21T15:10:19.473602+08:00 40000
+2017-07-21T15:14:27.135009+08:00 60000
+2017-07-21T15:18:27.877135+08:00 80000
+2017-07-21T15:22:15.421795+08:00 100000
+2017-07-21T15:25:28.591771+08:00 120000
+2017-07-21T15:28:34.029554+08:00 140000
+2017-07-21T15:31:54.928105+08:00 160000
+2017-07-21T15:34:54.735939+08:00 180000
+2017-07-21T15:37:35.695462+08:00 200000
+2017-07-21T15:40:23.367567+08:00 220000
+2017-07-21T15:43:13.425890+08:00 240000
+2017-07-21T15:46:09.265424+08:00 260000
+2017-07-21T15:48:47.738941+08:00 280000
+
+```
+
+此时 ls data -lh
+
+```
+total 4.6G
+-rw-rw-r-- 1 jac jac 1.4G 7月  21 15:50 jieba_cut_wiki.zh.text.simple
+-rw-rw-r-- 1 jac jac 1008 7月  21 12:18 trans_wiki.py
+-rw-rw-r-- 1 jac jac 965M 7月  21 14:17 wiki_org.zh.text
+-rw-rw-r-- 1 jac jac 965M 7月  21 14:44 wiki.zh.text.simple
+-rw-rw-r-- 1 jac jac  763 7月  21 14:59 word_cut.py
+-rwxrwx--- 1 jac jac 1.4G 7月  21 10:57 zhwiki-latest-pages-articles.xml.bz2
+```
+
+4. train
+
+```
+python3 train_model.py data/jieba_cut_wiki.zh.text.simple models/my_wiki_cn.model models/my_wiki_cn.vector
+
+output:
+
 ```
 
 ## download

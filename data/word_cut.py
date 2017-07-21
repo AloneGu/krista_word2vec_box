@@ -27,5 +27,5 @@ if __name__=='__main__':
             for line in fin.readlines():
                 fout.write(jieba_cut(line.strip())+'\n')
                 i += 1
-                if i % 4000 == 0:
-                    print(arrow.utcnow(),i)
+                if i % 20000 == 0:
+                    print(arrow.now(),i)
