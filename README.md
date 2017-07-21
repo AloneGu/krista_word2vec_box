@@ -1,11 +1,28 @@
 # krista_word2vec_box
-play with word2vec
+
+play with word2vec, this project used py3
 
 ## notes
 
 看起来skip效果更好
 
 unicode 有奇怪的问题 载入模型时使用 ignore
+
+trans wiki:
+
+```
+cd data
+
+python3 trans_wiki.py
+```
+
+word cut:
+
+```
+cd data
+
+python3 word_cut.py wiki_org.zh.text
+```
 
 ## download
 
