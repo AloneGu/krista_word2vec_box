@@ -27,7 +27,7 @@ skipgram http://pan.baidu.com/s/1hs02SD2
 
 ## links
 
-感想以下两个repo的作者
+感谢以下两个repo的作者
 
 模型参考 : https://github.com/to-shimo/chinese-word2vec  百度云上的模型是从这里拷贝的
 
