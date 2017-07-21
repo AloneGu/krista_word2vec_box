@@ -52,12 +52,23 @@ Using Theano backend.
 
 ```
 
+简繁转换:
+
+```
+sudo apt-get install opencc
+
+cd data
+
+opencc -i wiki_org.zh.text -o wiki.zh.text.simple -c zht2zhs.ini
+```
+
+
 word cut:
 
 ```
 cd data
 
-python3 word_cut.py wiki_org.zh.text
+python3 word_cut.py wiki.zh.text.simple
 ```
 
 ## download
