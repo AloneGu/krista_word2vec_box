@@ -115,7 +115,7 @@ output:
 
 ```
 
-## download
+## download ( notebook examples )
 
 把模型下载到 models 底下并且解压缩
 
